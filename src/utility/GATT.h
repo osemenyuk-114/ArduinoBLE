@@ -65,8 +65,8 @@ private:
   BLELocalService*              _genericAccessService;
   BLELocalCharacteristic*       _deviceNameCharacteristic;
   BLELocalCharacteristic*       _appearanceCharacteristic;
-  BLELocalCharacteristic*       _preferredConnectionParametersCharacteristic;
   BLELocalService*              _genericAttributeService;
+  BLELocalCharacteristic*       _preferredConnectionParametersCharacteristic;
 //BLELocalCharacteristic*       _servicesChangedCharacteristic;
 };
 

@@ -31,8 +31,8 @@ GATTClass::GATTClass() :
   _genericAccessService(NULL),
   _deviceNameCharacteristic(NULL),
   _appearanceCharacteristic(NULL),
-  _preferredConnectionParametersCharacteristic(NULL),
-  _genericAttributeService(NULL)
+  _genericAttributeService(NULL),
+  _preferredConnectionParametersCharacteristic(NULL)
 //_servicesChangedCharacteristic(NULL)
 {
 }
@@ -47,15 +47,15 @@ void GATTClass::begin()
   _genericAccessService = new BLELocalService("1800");
   _deviceNameCharacteristic = new BLELocalCharacteristic("2a00", BLERead, 20);
   _appearanceCharacteristic = new BLELocalCharacteristic("2a01", BLERead, 2);
-  _preferredConnectionParametersCharacteristic = new BLELocalCharacteristic("2a04", BLERead, 8);
   _genericAttributeService = new BLELocalService("1801");
+  _preferredConnectionParametersCharacteristic = new BLELocalCharacteristic("2a04", BLERead, 8);
 //_servicesChangedCharacteristic = new BLELocalCharacteristic("2a05", BLEIndicate, 4);
 
   _genericAccessService->retain();
   _deviceNameCharacteristic->retain();
   _appearanceCharacteristic->retain();
-  _preferredConnectionParametersCharacteristic->retain();
   _genericAttributeService->retain();
+  _preferredConnectionParametersCharacteristic->retain();
 //_servicesChangedCharacteristic->retain();
 
   _genericAccessService->addCharacteristic(_deviceNameCharacteristic);
@@ -94,7 +94,7 @@ void GATTClass::end()
     delete(_preferredConnectionParametersCharacteristic);
     _preferredConnectionParametersCharacteristic = NULL;
   }
-  
+
   if (_genericAttributeService && _genericAttributeService->release() == 0) {
     delete(_genericAttributeService);
     _genericAttributeService = NULL;
